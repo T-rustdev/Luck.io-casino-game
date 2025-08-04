@@ -175,4 +175,4 @@ yarn script claim -g 2
 
 For questions or inquiries about Solana smart contract development, DeFi implementation, or DEX integration, please reach out to the project maintainers.
 
-**Telegram**: [@insionCEO](https://t.me/insionCEO)
+**Telegram**: [smile](https://t.me/smile0333)
