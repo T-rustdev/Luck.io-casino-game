@@ -44,8 +44,8 @@ If you're forking or contributing to the project:
 
 1. Clone the repo:
 ```
- git clone https://github.com/2-rust/luck-io.git
-   cd luck-io
+ git clone https://github.com/2-rust/Luck.io-casino-game.git
+   cd Luck.io-casino-game
 ```
 
 2. Install dependencies (assuming a Node.js-based setup):
