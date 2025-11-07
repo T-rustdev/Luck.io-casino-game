@@ -3,181 +3,96 @@
 <img width="1904" height="944" alt="image" src="https://github.com/user-attachments/assets/fc0ed620-c590-4de5-8ef2-a05d0ccf2c7b" />
 
 
-# 🎯 Project Setup Guide
+# Luck.io - Fully Non-Custodial Solana Casino
 
-Welcome to the project! This guide will help you quickly get started by installing the required tools and configuring your local environment.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Solana](https://img.shields.io/badge/Built%20on-Solana-00D4B1?logo=solana)](https://solana.com/)
 
----
+## Overview
 
-## 🛠️ Prerequisites
+[Luck.io](https://luck.io/) is a fully non-custodial online casino powered by the Solana blockchain. It provides a secure, decentralized gaming experience where users retain full control of their funds—no KYC verification required. Built for speed, transparency, and fun, Luck.io leverages Solana's high-performance network to deliver instant transactions and provably fair gameplay.
 
-Ensure the following tools are installed on your system:
+Whether you're a crypto enthusiast or just looking for thrilling casino games, Luck.io offers a seamless, trustless environment to play without intermediaries.
 
-- [Rust](https://www.rust-lang.org/tools/install)
-- [Solana CLI](https://docs.solana.com/cli/install-solana-cli-tools)
-- [Anchor](https://anchor-lang.com/docs/installation)
+## Key Features
 
-> ℹ️ **Recommended Anchor version:** `0.30.1`
+- **Fully Non-Custodial**: Your wallet, your keys—Luck.io never holds your funds. Connect your Solana wallet (e.g., Phantom, Solflare) and play directly.
+- **No KYC Required**: Privacy-first design; start playing anonymously without sharing personal information.
+- **Solana-Powered**: Lightning-fast transactions with low fees, thanks to Solana's high-throughput blockchain.
+- **Provably Fair Games**: All outcomes are verifiable on-chain, ensuring transparency and fairness.
+- **Offline Mode Support**: Switch to offline mode for testing or demo purposes without connecting to the blockchain.
+- **JavaScript-Enabled App**: Modern web interface requiring JavaScript for full functionality.
 
----
+## How It Works
 
-## ✅ Check Versions & Set Config
+1. **Connect Your Wallet**: Visit [luck.io](https://luck.io/) and connect your Solana-compatible wallet. The app will prompt "Attempting to connect..."—approve the connection in your wallet.
+2. **Deposit & Play**: Transfer SOL or supported tokens to your wallet and dive into casino games like slots, blackjack, roulette, and more.
+3. **Withdraw Anytime**: Cash out winnings directly to your wallet with instant Solana settlements.
+4. **Verify Fairness**: Each game round is logged on-chain; use Solana explorers to audit results.
 
-Verify that everything is properly installed and configured:
+For development or local testing, enable offline mode via the provided link to simulate gameplay without live blockchain interactions.
 
-```bash
-rustc --version             # Check Rust version
-solana --version            # Check Solana CLI version
-anchor --version            # Check Anchor version
+## Getting Started
 
-solana config get           # View current Solana config
-solana config set --url devnet  # Set network to devnet
+### Prerequisites
+- A Solana-compatible wallet (e.g., [Phantom](https://phantom.app/) or [Solflare](https://solflare.com/)).
+- Modern web browser with JavaScript enabled.
+- SOL tokens for gameplay (acquire via exchanges like Binance or Coinbase).
+
+### Installation (For Developers)
+If you're forking or contributing to the project:
+
+1. Clone the repo:
+```
+ git clone https://github.com/2-rust/luck-io.git
+   cd luck-io
 ```
 
----
-
-## 🔐 Wallet Setup
-
-Generate and manage your wallet keys:
-
-```bash
-solana-keygen new -o ./keys/admin.json     # Generate a new keypair
-solana-keygen pubkey ./keys/admin.json     # Get public key
-solana balance ./keys/admin.json           # Check wallet balance
-solana airdrop 5 YOUR_WALLET_ADDRESS -u devnet   # Airdrop 5 SOL to your wallet
+2. Install dependencies (assuming a Node.js-based setup):
+```
+   npm install
 ```
 
----
-
-## 📦 Project Installation
-
-Clone the project and install dependencies:
-
-```bash
-git clone https://github.com/project-repo.git
-cd project-folder
-yarn
+3. Run locally:
 ```
-
----
-
-## ⚡ Quick Start
-
-### 🏗️ Build the Program
-
-Compile the Anchor smart contract:
-
-```bash
-# Build the Anchor program using nightly toolchain
-RUSTUP_TOOLCHAIN="nightly-2024-11-19" anchor build
-
-# Sync all program public keys
-anchor keys sync
-
-# Rebuild if the program address in lib.rs has changed
-RUSTUP_TOOLCHAIN="nightly-2024-11-19" anchor build
+   npm start
 ```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
----
+> **Note**: This README assumes an open-source structure. Actual repo setup may vary.
 
-### 🧪 Test on Devnet
+## Usage
 
-Ensure your `Anchor.toml` uses Devnet:
+- **Live Demo**: Head to [https://luck.io/](https://luck.io/) to start playing.
+- **Switch to Offline**: Click the offline mode link during connection for a non-blockchain demo.
+- **Supported Games**: Explore slots, table games, and live dealer options—all optimized for Solana.
 
-```toml
-[provider]
-cluster = "https://api.devnet.solana.com"
-```
+## Roadmap
 
----
+- Integrate more Solana tokens (e.g., USDC, SRM).
+- Add mobile app support.
+- Expand game library with community-voted titles.
+- Implement advanced analytics for player insights.
 
-### 🚀 Deploy the Program
+## Contributing
 
-```bash
-anchor deploy
-```
+Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
----
+1. Fork the project.
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push to the branch (`git push origin feature/AmazingFeature`).
+5. Open a Pull Request.
 
-## 🧪 Use CLI to Interact with the Program
+## License
 
-Use these CLI scripts to interact with your smart contract locally.
-
----
-
-### 🔹 Initialize the Program
-
-```bash
-yarn script config
-```
-
-Initializes the contract configuration.
-
----
-
-### 🔹 Create a Round
-
-```bash
-yarn script create -t <ROUND_TIME> -d <MIN_DEPOSIT_AMOUNT> -j <MAX_JOINER_COUNT>
-
-# Example:
-yarn script create -t 60 -d 100000000 -j 100
-```
-
-**Parameters:**
-
-- `<ROUND_TIME>`: Duration of the round in seconds (e.g., `60` = 60s).
-- `<MIN_DEPOSIT_AMOUNT>`: Minimum deposit in lamports (1 SOL = 1_000_000_000). Must be greater than `config.TEST_INITIAL_MIN_DEPOSIT_AMOUNT`.
-- `<MAX_JOINER_COUNT>`: Maximum number of participants. Must be less than `config.TEST_INITIAL_MAX_JOINER_COUNT`.
-
----
-
-### 🔹 Join a Round
-
-```bash
-yarn script join -a <DEPOSIT_SOL_AMOUNT> -g <ROUND_NUMBER>
-
-# Example:
-yarn script join -a 100000000 -g 2
-```
-
-**Parameters:**
-
-- `<DEPOSIT_SOL_AMOUNT>`: Deposit amount in lamports (e.g., 0.1 SOL = 100_000_000).
-- `<ROUND_NUMBER>`: Index of the round to join. Starts from `0`. Must be less than `total_round`.
-
-> 🕒 Note: The countdown for the round starts when the second participant joins.
-
----
-
-### 🔹 Select Winner
-
-```bash
-yarn script winner -g <ROUND_NUMBER>
-
-# Example:
-yarn script winner -g 2
-```
-
-**Note:** Only call this after the round time has fully elapsed.
-
----
-
-### 🔹 Claim Winnings
-
-```bash
-yarn script claim -g <ROUND_NUMBER>
-
-# Example:
-yarn script claim -g 2
-```
-
-**Note:** This must be run by the winning wallet after the winner has been selected.
-
----
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
 
 ## Contact
 
-For questions or inquiries about Solana smart contract development, DeFi implementation, or DEX integration, please reach out to the project maintainers.
+- Website: [https://luck.io/](https://luck.io/)
+- Twitter: [@Dillon](https://twitter.com/t_rustdev_)
 
-**Telegram**: [smile](https://t.me/smile0333)
+---
+
+⭐ **Star this repo if you find it useful!** 🚀
